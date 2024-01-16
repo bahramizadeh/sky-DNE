@@ -1,0 +1,9 @@
+flask
+flask_JWT_extended
+flask_smorest
+flask_sqlalchemy
+marshmallow
+python-dotenv
+requests
+passlib
+
