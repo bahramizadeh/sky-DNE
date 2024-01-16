@@ -10,6 +10,7 @@ from flask_jwt_extended import JWTManager
 from db import db
 
 from resources.user import blp as UserBluprint
+from resources.loopback import blp as LoopBackBluprint
 from blocklist import BLOCKLIST
 
 
@@ -35,6 +36,7 @@ def create_app(__name__, db_uri):
     api = Api(app)
 
     api.register_blueprint(UserBluprint)
+    api.register_blueprint(LoopBackBluprint)
 
     return app, jwt, db
 

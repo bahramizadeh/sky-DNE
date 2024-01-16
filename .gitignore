@@ -1,1 +1,11 @@
 .venv
+
+
+__pycache__/*
+__pycache__/app.cpython-310.pyc
+__pycache__/app.cpython-310.pyc
+instance/*
+
+models/__pycache__/
+resources/__pycache__/
+connectors/__pycache__

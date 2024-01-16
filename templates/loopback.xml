@@ -1,0 +1,21 @@
+<{{data.operation}} xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <interface >
+            <Loopback {% if data.delete %} operation='delete' {% endif %}>
+                <name>{{data.loopback_number}}</name>
+                {% if data.operation == 'config' %}
+                <ip>
+                    {% if data.ipv4 %}
+                    <address>
+                        <primary>
+                            <address>{{data.ipv4}}</address>
+                            <mask>{{data.ipv4_mask}}</mask>
+                        </primary>
+                    </address>
+                    {% endif %}
+                </ip>
+                {% endif %}
+            </Loopback>
+        </interface>
+    </native>
+</{{data.operation}}>
