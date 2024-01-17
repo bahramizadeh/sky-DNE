@@ -1,4 +1,3 @@
-# from dependencies.handlers.base_handler import BaseHandler
 from ncclient import manager, xml_
 
 
@@ -12,7 +11,6 @@ class NetconfHandler():
             hostname (str): address/name of the device
             args : ['username', 
                     'password', 
-                    'secret'
                     'device_type', 
                     'port']
         """
@@ -22,7 +20,7 @@ class NetconfHandler():
         self.device_type = device_type
         self.username = username
         self.password = password
-        self.net_connect = None
+        
         
     def connection(self):
         

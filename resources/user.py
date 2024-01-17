@@ -50,7 +50,6 @@ class User(MethodView):
         user = UserModel.query.get_or_404(user_id)
         return user
 
-    @jwt_required(refresh=True)
     def delete(self, user_id):
         return self._delete(user_id)
 
@@ -77,7 +76,7 @@ class Login(MethodView):
         if user and pbkdf2_sha256.verify(user_info["password"], user.password):
             access_token = create_access_token(identity=user.id, fresh=True)
             refresh_token = create_refresh_token(user.id)
-
+            
             return {"access_token": access_token, "refresh_token": refresh_token}, 200
 
         abort(401, message="Invalid credentials.")
@@ -95,12 +94,11 @@ class UserLogout(MethodView):
 
         return {"message": "successfully logged out."}, 200
 
-
+    
 @blp.route("/refresh")
 class TokenRefresh(MethodView):
     @jwt_required(refresh=True)
     def post(self):
-
         return self._post()
 
     def _post(self):
@@ -108,5 +106,4 @@ class TokenRefresh(MethodView):
         new_token = create_access_token(identity=current_user, fresh=False)
         jti = get_jwt()["jti"]
         BLOCKLIST.add(jti)
-
         return {"access_token": new_token}, 200
