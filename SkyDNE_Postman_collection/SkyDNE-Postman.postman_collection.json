@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "651a4285-5ad0-4bb0-9cca-b1de2feaae21",
+		"name": "SkyDNE-Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14687223"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"mary\",\n    \"password\" : \"123456dD\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"maryam3\",\n    \"password\" : \"123456dD\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{refresh_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4OTk0NTAwNSwianRpIjoiNWQ4Yjg5YTEtYTQ0Yy00NjE4LWEyNmEtMTUxY2M3OTM2Zjc2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg5OTQ1MDA1LCJleHAiOjE2ODk5NDU5MDUsImlzX2FkbWluIjp0cnVlfQ.EDPlrvy3ILS0AEyTffJWHsBBLYKwcMV0fQcVF9cL1eM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/<user_id>",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"maryam\",\n    \"password\" : \"123456dD\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/<user_id>",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{refresh_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"maryam\",\n    \"password\" : \"123456dD\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/user/12",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loopback Apis",
+			"item": [
+				{
+					"name": "/interfaces/loopback",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"connection_data\":{\n        \"hostname\": \"sandbox-iosxe-latest-1.cisco.com\",\n        \"port\": 830,\n        \"username\": \"admin\",\n        \"password\": \"C1sco12345\",\n        \"device_type\": \"iosxe\"\n        }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/interfaces/loopback/111",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interfaces",
+								"loopback",
+								"111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/interfaces/status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"connection_data\":{\n        \"hostname\": \"sandbox-iosxe-latest-1.cisco.com\",\n        \"port\": 830,\n        \"username\": \"admin\",\n        \"password\": \"C1sco12345\",\n        \"device_type\": \"iosxe\"\n        }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/interfaces/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interfaces",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/interfaces/loopback",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"connection_data\":{\n        \"hostname\": \"sandbox-iosxe-latest-1.cisco.com\",\n        \"port\": 830,\n        \"username\": \"admin\",\n        \"password\": \"C1sco12345\",\n        \"device_type\": \"iosxe\"\n        },\n    \"loopback_data\":{\n        \"ipv4\": \"110.10.10.10\",\n        \"ipv4_mask\": \"255.255.255.255\"\n        }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/interfaces/loopback/111",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"interfaces",
+								"loopback",
+								"111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
