@@ -6,7 +6,7 @@ This repository contains the python codes for configuration loopback for a route
 
 ```
 1- Some parts of APIs are implemented to work with Netconf/YANG to configure a loopback interface and delete it.
-2- Some parts of APIS are implemented to deal wit CLI and paramiko to return all interfaces include loopback interfaces with their status and IP adresses
+2- Some parts of APIS are implemented to deal wit CLI and paramiko to return all interfaces include loopback interfaces with their status and IP addresses
 3- Requred postman collections to work with API
 ```
 
@@ -34,7 +34,7 @@ docker-compose setup:
 local setup:
 
 ```
-1- Create python virtual environment
+1- Create python virtual environment using this command: python3 -m venv virtual_env_name
 2- Install all packages in requirements.txt
 3- activate virtual environment usering this command: source virtual_env_name/bin/activate
 4- pip install -r requirements.txt
@@ -48,12 +48,34 @@ local setup:
 
 
 ### API Explanations
+
+## Loopbak APIs
  
 **"Post --> /interfaces/loopback/<int:loopback_num>":**
 > This API is used to configure a loopback interface of the router via netconf connection
 
 **"Delete --> /interfaces/loopback/<int:loopback_num>":**
-> This API is used to delete the configuration of the loopback interface from the router via netconf connection
+> This API is used to delete the configuration of a loopback interface from the router via netconf connection
 
 **"Post --> /interfaces/status":**
 > This API is used to post connection data to connect to the router and return all interfaces including interface, status and Ip address from the router via cli and paramiko
+
+## User APIs
+
+**"Post --> /register":**
+> This API is used to create a new user into the Sqlite database for providing JWT token
+
+**"Post --> /login":**
+> This API is used to login the created user and provide access_token based on JWT for protecting APIs
+
+**"Post --> /refresh":**
+> This API is used to refresh the JWT access_token which is not fresh to keep the user login
+
+**"Post --> /logout":**
+> This API is used to logout the current user and add the user's access_token jti into a blocklist
+
+**"Get --> /user/<int:user_id>":**
+> This API is used to get or retrieve a specified user from database based on the user_id
+
+**"Delete --> /user/<int:user_id>":**
+> This API is used to delete a specified user from database based on the user_id
