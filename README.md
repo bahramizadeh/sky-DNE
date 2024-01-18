@@ -49,7 +49,7 @@ local setup:
 
 ### API Explanations
 
-## Loopbak APIs
+Loopbak APIs:
  
 **"Post --> /interfaces/loopback/<int:loopback_num>":**
 > This API is used to configure a loopback interface of the router via netconf connection
@@ -60,7 +60,8 @@ local setup:
 **"Post --> /interfaces/status":**
 > This API is used to post connection data to connect to the router and return all interfaces including interface, status and Ip address from the router via cli and paramiko
 
-## User APIs
+
+User APIs:
 
 **"Post --> /register":**
 > This API is used to create a new user into the Sqlite database for providing JWT token
