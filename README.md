@@ -49,7 +49,7 @@ local setup:
 
 ### API Explanations
 
-Loopbak APIs:
+Loopback APIs:
  
 **"Post --> /interfaces/loopback/<int:loopback_num>":**
 > This API is used to configure a loopback interface of the router via netconf connection
