@@ -2,7 +2,7 @@
 ## Overview
 
 This repository contains the python codes for configuration loopback for a router Iosxe via netconf and paramiko.
-FastAPI is the web framework is used to handle all APIs.
+
 
 ```
 1- Some parts of APIs are implemented to work with Netconf/YANG to configure a loopback interface and delete it.
